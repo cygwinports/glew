@@ -1,0 +1,9 @@
+category: X11
+requires: cygwin libGLEW1.5 libGLU-devel libX11-devel xproto
+external-source: glew
+sdesc: "OpenGL Extension Wrangler library (development)"
+ldesc: "The OpenGL Extension Wrangler Library (GLEW) is a cross-platform 
+open-source C/C++ extension loading library. GLEW provides efficient 
+run-time mechanisms for determining which OpenGL extensions are 
+supported on the target platform. OpenGL core and extension 
+functionality is exposed in a single header file."

@@ -1,0 +1,28 @@
+DESCRIPTION="OpenGL Extension Wrangler library"
+HOMEPAGE="http://glew.sourceforge.net/"
+SRC_URI="mirror://sourceforge/glew/${P}-src.tgz"
+PATCH_URI="1.5.1-cygwin.patch"
+
+SRC_DIR=${PN}
+
+PKG_NAMES="${PN} libGLEW1.5 libGLEW-devel"
+glew_CONTENTS="usr/bin/*.exe usr/share/"
+libGLEW1_5_CONTENTS="usr/bin/cygGLEW-1.5.dll"
+libGLEW_devel_CONTENTS="usr/include/GL/gl* usr/lib/"
+PKG_IGNORE="usr/include/GL/wglew.h"
+
+CYGPORT_USE_UNSTABLE_API=1
+src_unpack_hook() {
+	d2u Makefile config/* include/GL/* &>/dev/null
+}
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	cyginstall GLEW_DEST=${D}/usr
+}
