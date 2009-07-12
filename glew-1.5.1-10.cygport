@@ -19,7 +19,7 @@ src_unpack_hook() {
 src_compile() {
 	lndirs
 	cd ${B}
-	cygmake
+	cygmake CC="${CC}" LD="${CC}"
 }
 
 src_install() {

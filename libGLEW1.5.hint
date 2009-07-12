@@ -1,5 +1,5 @@
 category: X11
-requires: libGL1
+requires: libgcc1 libGL1
 external-source: glew
 sdesc: "OpenGL Extension Wrangler library (runtime)"
 ldesc: "The OpenGL Extension Wrangler Library (GLEW) is a cross-platform 
