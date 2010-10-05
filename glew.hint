@@ -1,5 +1,5 @@
 category: X11
-requires: libgcc1 libGL1 libGLEW1.5 libGLU1 libX11_6
+requires: libGL1 libGLEW1.5 libGLU1 libX11_6
 sdesc: "OpenGL Extension Wrangler library (utilities)"
 ldesc: "The OpenGL Extension Wrangler Library (GLEW) is a cross-platform 
 open-source C/C++ extension loading library. GLEW provides efficient 

@@ -1,5 +1,5 @@
 category: X11
-requires: libGLEW1.5 libGLU-devel libX11-devel xproto
+requires: libGLEW1.5 libGL-devel libGLU-devel libX11-devel xproto
 external-source: glew
 sdesc: "OpenGL Extension Wrangler library (development)"
 ldesc: "The OpenGL Extension Wrangler Library (GLEW) is a cross-platform 
