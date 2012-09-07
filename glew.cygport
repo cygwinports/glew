@@ -1,0 +1,31 @@
+NAME="glew"
+VERSION=1.7.0
+RELEASE=1
+CATEGORY="X11"
+SUMMARY="OpenGL Extension Wrangler library"
+DESCRIPTION="The OpenGL Extension Wrangler Library (GLEW) is a cross-platform
+open-source C/C++ extension loading library. GLEW provides efficient run-time
+mechanisms for determining which OpenGL extensions are supported on the target
+platform. OpenGL core and extension functionality is exposed in a single header
+file."
+HOMEPAGE="http://glew.sourceforge.net/"
+SRC_URI="mirror://sourceforge/glew/${P}.tgz"
+
+PKG_NAMES="${PN} libGLEW1.7 libGLEW-devel"
+glew_SUMMARY="OpenGL Extension Wrangler demos"
+glew_CONTENTS="usr/bin/*.exe usr/share/"
+libGLEW1_7_CONTENTS="usr/bin/cygGLEW*-1-7.dll"
+libGLEW_devel_REQUIRES="libGL-devel libGLU-devel libX11-devel"
+libGLEW_devel_CONTENTS="usr/include/GL/gl* usr/lib/"
+PKG_IGNORE="usr/include/GL/wglew.h"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake all GLEW_DEST=/usr
+}
+
+src_install() {
+	cd ${B}
+	cygmake install.all GLEW_DEST=${D}/usr
+}
