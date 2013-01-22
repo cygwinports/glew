@@ -1,5 +1,5 @@
 NAME="glew"
-VERSION=1.7.0
+VERSION=1.9.0
 RELEASE=1
 CATEGORY="X11"
 SUMMARY="OpenGL Extension Wrangler library"
@@ -11,10 +11,10 @@ file."
 HOMEPAGE="http://glew.sourceforge.net/"
 SRC_URI="mirror://sourceforge/glew/${P}.tgz"
 
-PKG_NAMES="${PN} libGLEW1.7 libGLEW-devel"
+PKG_NAMES="${PN} libGLEW1.9 libGLEW-devel"
 glew_SUMMARY="OpenGL Extension Wrangler demos"
 glew_CONTENTS="usr/bin/*.exe usr/share/"
-libGLEW1_7_CONTENTS="usr/bin/cygGLEW*-1-7.dll"
+libGLEW1_9_CONTENTS="usr/bin/cygGLEW*-1-9.dll"
 libGLEW_devel_REQUIRES="libGL-devel libGLU-devel libX11-devel"
 libGLEW_devel_CONTENTS="usr/include/GL/gl* usr/lib/"
 PKG_IGNORE="usr/include/GL/wglew.h"
