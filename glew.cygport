@@ -1,7 +1,7 @@
 NAME="glew"
-VERSION=1.9.0
+VERSION=1.11.0
 RELEASE=1
-CATEGORY="X11"
+CATEGORY="Libs"
 SUMMARY="OpenGL Extension Wrangler library"
 DESCRIPTION="The OpenGL Extension Wrangler Library (GLEW) is a cross-platform
 open-source C/C++ extension loading library. GLEW provides efficient run-time
@@ -9,23 +9,26 @@ mechanisms for determining which OpenGL extensions are supported on the target
 platform. OpenGL core and extension functionality is exposed in a single header
 file."
 HOMEPAGE="http://glew.sourceforge.net/"
-SRC_URI="mirror://sourceforge/glew/${P}.tgz"
+SRC_URI="mirror://sourceforge/glew/glew-${VERSION}.tgz"
 
-PKG_NAMES="${PN} libGLEW1.9 libGLEW-devel"
+PKG_NAMES="glew libGLEW1.11 libGLEW-devel"
+glew_CATEGORY="X11"
 glew_SUMMARY="OpenGL Extension Wrangler demos"
 glew_CONTENTS="usr/bin/*.exe usr/share/"
-libGLEW1_9_CONTENTS="usr/bin/cygGLEW*-1-9.dll"
-libGLEW_devel_REQUIRES="libGL-devel libGLU-devel libX11-devel"
+libGLEW1_11_CONTENTS="usr/bin/cygGLEW*-1-11.dll"
 libGLEW_devel_CONTENTS="usr/include/GL/gl* usr/lib/"
-PKG_IGNORE="usr/include/GL/wglew.h"
 
 src_compile() {
 	lndirs
 	cd ${B}
-	cygmake all GLEW_DEST=/usr
+	cygmake all GLEW_DEST=/usr POPT="${CFLAGS}" STRIP=:
 }
 
 src_install() {
 	cd ${B}
-	cygmake install.all GLEW_DEST=${D}/usr
+	dobin bin/*.exe lib/*.dll
+	dolib lib/*.dll.a
+	dopkgconfig *.pc
+	includeinto GL
+	doinclude include/GL/gl*ew.h
 }
