@@ -1,5 +1,5 @@
 NAME="glew"
-VERSION=1.13.0
+VERSION=2.1.0
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="OpenGL Extension Wrangler library"
@@ -11,12 +11,12 @@ file."
 HOMEPAGE="http://glew.sourceforge.net/"
 SRC_URI="mirror://sourceforge/glew/glew-${VERSION}.tgz"
 
-PKG_NAMES="glew libGLEW1.13 libGLEW-devel"
+PKG_NAMES="glew libGLEW2.1 libGLEW-devel"
 glew_CATEGORY="X11"
 glew_SUMMARY="OpenGL Extension Wrangler demos"
 glew_CONTENTS="usr/bin/*.exe usr/share/"
-libGLEW1_13_CONTENTS="usr/bin/cygGLEW*-1-13.dll"
-libGLEW_devel_CONTENTS="usr/include/GL/gl* usr/lib/"
+libGLEW2_1_CONTENTS="usr/bin/cygGLEW-2-1.dll"
+libGLEW_devel_CONTENTS="usr/include/GL/* usr/lib/"
 
 src_compile() {
 	lndirs
@@ -30,5 +30,5 @@ src_install() {
 	dolib lib/*.dll.a
 	dopkgconfig *.pc
 	includeinto GL
-	doinclude include/GL/gl*ew.h
+	doinclude include/GL/{e,}gl*ew.h
 }
